@@ -21,7 +21,7 @@ export function ExportButton() {
 
   return (
     <button
-      className="px-2 py-1 text-xs rounded bg-green-700 hover:bg-green-600 text-white"
+      className="px-2 py-1 text-xs rounded bg-[#FFCC00] hover:bg-[#FFD633] text-black font-semibold"
       onClick={handleExport}
       title="Export zones to zones.json"
     >

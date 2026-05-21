@@ -9,7 +9,7 @@ import {
 } from 'react'
 import * as d3 from 'd3'
 import { useStore } from '../store'
-import { ZonePolygon } from './ZonePolygon'
+import { ZonePolygon, findInsertIndex } from './ZonePolygon'
 import { SnapOverlay } from './SnapOverlay'
 
 // ── Field constants ────────────────────────────────────────────────────────────
@@ -81,6 +81,7 @@ export function FieldCanvas() {
   const zones = useStore((s) => s.zones)
   const selectedZoneId = useStore((s) => s.selectedZoneId)
   const addPoint = useStore((s) => s.addPoint)
+  const insertPoint = useStore((s) => s.insertPoint)
   const selectZone = useStore((s) => s.selectZone)
   const deselectTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
@@ -169,17 +170,24 @@ export function FieldCanvas() {
         clearTimeout(deselectTimer.current)
         deselectTimer.current = null
       }
-      // Selected zone's own polygon handles edge-insertion via stopPropagation;
-      // for all other cases (background or non-selected zone) we add to the selected zone.
       if (!selectedZoneId) return
+      // Block edits when the selected zone is hidden
+      const zone = zones.find((z) => z.id === selectedZoneId)
+      if (!zone || !zone.visible) return
       e.preventDefault()
       const { x, y } = toField(e)
-      addPoint(selectedZoneId, {
+      const pt = {
         x: Math.max(0, Math.min(FIELD_W, x)),
         y: Math.max(0, Math.min(FIELD_H, y)),
-      })
+      }
+      // 3+ points: insert at the nearest edge for intuitive polygon building
+      if (zone.points.length >= 3) {
+        insertPoint(selectedZoneId, findInsertIndex(zone.points, pt), pt)
+      } else {
+        addPoint(selectedZoneId, pt)
+      }
     },
-    [selectedZoneId, addPoint, toField],
+    [selectedZoneId, zones, addPoint, insertPoint, toField],
   )
 
   const ctx = useMemo<FieldCtx>(
@@ -197,7 +205,7 @@ export function FieldCanvas() {
     <FieldTransformContext.Provider value={ctx}>
       <div
         ref={containerRef}
-        className="flex-1 overflow-hidden bg-gray-900"
+        className="flex-1 overflow-hidden bg-black"
         style={{ minWidth: 0, minHeight: 0 }}
       >
         <svg

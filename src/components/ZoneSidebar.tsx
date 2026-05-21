@@ -9,12 +9,12 @@ export function ZoneSidebar() {
   const selectZone = useStore((s) => s.selectZone)
 
   return (
-    <aside className="w-64 flex flex-col bg-gray-800 border-r border-gray-700 shrink-0">
+    <aside className="w-64 flex flex-col bg-[#111] border-r border-[#2a2a2a] shrink-0">
       {/* Header */}
-      <div className="flex items-center justify-between px-3 py-2 border-b border-gray-700">
-        <span className="text-sm font-semibold text-gray-200">Zones</span>
+      <div className="flex items-center justify-between px-3 py-2 border-b border-[#2a2a2a]">
+        <span className="font-heading text-sm text-[#FFCC00]">Zones</span>
         <button
-          className="px-2 py-1 text-xs bg-blue-600 hover:bg-blue-500 text-white rounded"
+          className="px-2 py-1 text-xs bg-[#FFCC00] hover:bg-[#FFD633] text-black font-semibold rounded"
           onClick={addZone}
         >
           + Add Zone
@@ -24,7 +24,7 @@ export function ZoneSidebar() {
       {/* Zone list */}
       <div className="flex-1 overflow-y-auto">
         {zones.length === 0 && (
-          <p className="text-xs text-gray-500 p-3">
+          <p className="text-xs text-[#888] p-3">
             No zones yet. Add a zone, then double-click the field to place vertices.
           </p>
         )}
@@ -33,8 +33,8 @@ export function ZoneSidebar() {
           return (
             <div
               key={zone.id}
-              className={`flex flex-col gap-1 px-3 py-2 border-b border-gray-700 cursor-pointer select-none ${
-                isSelected ? 'bg-gray-700' : 'hover:bg-gray-750'
+              className={`flex flex-col gap-1 px-3 py-2 border-b border-[#2a2a2a] cursor-pointer select-none ${
+                isSelected ? 'bg-[#1a1a1a]' : 'hover:bg-[#1a1a1a]'
               }`}
               onClick={() => selectZone(zone.id)}
             >
@@ -54,7 +54,7 @@ export function ZoneSidebar() {
                 <input
                   type="text"
                   value={zone.name}
-                  className="flex-1 min-w-0 bg-gray-900 text-sm text-gray-100 px-1 py-0.5 rounded border border-gray-600 focus:outline-none focus:border-blue-500"
+                  className="flex-1 min-w-0 bg-black text-sm text-white px-1 py-0.5 rounded border border-[#2a2a2a] focus:outline-none focus:border-[#FFCC00]"
                   onClick={(e) => e.stopPropagation()}
                   onChange={(e) =>
                     updateZone(zone.id, { name: e.target.value })
@@ -62,7 +62,7 @@ export function ZoneSidebar() {
                 />
                 {/* Visibility toggle */}
                 <button
-                  className="text-gray-400 hover:text-gray-100 shrink-0"
+                  className="text-[#888] hover:text-white shrink-0"
                   title={zone.visible ? 'Hide zone' : 'Show zone'}
                   onClick={(e) => {
                     e.stopPropagation()
@@ -83,7 +83,7 @@ export function ZoneSidebar() {
                 </button>
                 {/* Delete */}
                 <button
-                  className="text-gray-500 hover:text-red-400 shrink-0"
+                  className="text-[#555] hover:text-red-400 shrink-0"
                   title="Delete zone"
                   onClick={(e) => {
                     e.stopPropagation()
@@ -100,13 +100,13 @@ export function ZoneSidebar() {
               </div>
               {/* Row 2: priority */}
               <div className="flex items-center gap-2">
-                <span className="text-xs text-gray-400 w-12 shrink-0">Priority</span>
+                <span className="text-xs text-[#888] w-12 shrink-0">Priority</span>
                 <input
                   type="number"
                   min={0}
                   step={1}
                   value={zone.priority}
-                  className="w-16 bg-gray-900 text-sm text-gray-100 px-1 py-0.5 rounded border border-gray-600 focus:outline-none focus:border-blue-500"
+                  className="w-16 bg-black text-sm text-white px-1 py-0.5 rounded border border-[#2a2a2a] focus:outline-none focus:border-[#FFCC00]"
                   onClick={(e) => e.stopPropagation()}
                   onChange={(e) =>
                     updateZone(zone.id, {
@@ -114,7 +114,7 @@ export function ZoneSidebar() {
                     })
                   }
                 />
-                <span className="text-xs text-gray-500">{zone.points.length} pts</span>
+                <span className="text-xs text-[#888]">{zone.points.length} pts</span>
               </div>
             </div>
           )

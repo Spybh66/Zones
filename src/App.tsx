@@ -46,9 +46,9 @@ export default function App() {
       } else if (e.key === 'Delete' || e.key === 'Backspace') {
         if (!selectedZoneId) return
         e.preventDefault()
-        // If a zone is selected and has no focused vertex, delete the zone
         const zone = zones.find((z) => z.id === selectedZoneId)
-        if (zone) deleteZone(selectedZoneId)
+        // Block changes to hidden zones — user can't see what they'd be deleting
+        if (zone && zone.visible) deleteZone(selectedZoneId)
       }
     }
     window.addEventListener('keydown', handler)
@@ -56,7 +56,7 @@ export default function App() {
   }, [undo, redo, selectedZoneId, zones, deleteZone, deletePoint])
 
   return (
-    <div className="flex flex-col h-screen bg-gray-900 text-gray-100">
+    <div className="flex flex-col h-screen bg-black text-white">
       <Toolbar
         importButton={<ImportButton />}
         exportButton={<ExportButton />}

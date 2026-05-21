@@ -92,7 +92,7 @@ export function ImportButton() {
   return (
     <>
       <button
-        className="px-2 py-1 text-xs rounded bg-gray-700 hover:bg-gray-600 text-gray-200"
+        className="px-2 py-1 text-xs rounded bg-[#1a1a1a] hover:bg-[#252525] text-white"
         onClick={() => inputRef.current?.click()}
         title="Load zones from a JSON file"
       >

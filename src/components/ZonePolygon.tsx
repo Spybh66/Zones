@@ -14,7 +14,7 @@ import type { Zone, Point } from '../types'
 
 /** Returns the index i such that inserting *after* index i puts the new point
  *  closest to `cursor` on any edge of the polygon. */
-function findInsertIndex(points: Point[], cursor: Point): number {
+export function findInsertIndex(points: Point[], cursor: Point): number {
   if (points.length < 2) return 0
   let bestIdx = 0
   let bestDist = Infinity

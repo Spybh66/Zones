@@ -171,6 +171,8 @@ export function ZonePolygon({ zone, selected }: Props) {
   }
 
   const handleEdgeDblClick = (e: React.MouseEvent) => {
+    // Only edit the selected zone; let other zones pass the event up to the SVG handler
+    if (!selected) return
     if (zone.points.length < 2) return
     e.stopPropagation()
     e.preventDefault()

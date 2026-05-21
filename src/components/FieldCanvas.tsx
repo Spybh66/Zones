@@ -169,8 +169,8 @@ export function FieldCanvas() {
         clearTimeout(deselectTimer.current)
         deselectTimer.current = null
       }
-      // Ignore if click was on a zone polygon
-      if ((e.target as Element).closest('[data-zone]')) return
+      // Selected zone's own polygon handles edge-insertion via stopPropagation;
+      // for all other cases (background or non-selected zone) we add to the selected zone.
       if (!selectedZoneId) return
       e.preventDefault()
       const { x, y } = toField(e)

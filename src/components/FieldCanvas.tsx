@@ -205,7 +205,7 @@ export function FieldCanvas() {
     <FieldTransformContext.Provider value={ctx}>
       <div
         ref={containerRef}
-        className="flex-1 overflow-hidden bg-black"
+        className="flex-1 overflow-hidden bg-[#444]"
         style={{ minWidth: 0, minHeight: 0 }}
       >
         <svg

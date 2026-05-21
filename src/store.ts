@@ -24,6 +24,7 @@ interface StoreState {
   updatePoint: (zoneId: string, index: number, point: Point) => void
   deletePoint: (zoneId: string, index: number) => void
   selectZone: (id: string | null) => void
+  reorderZones: (fromIndex: number, toIndex: number) => void
   loadZones: (zones: Zone[]) => void
 
   // ── Snapping (not tracked by undo/redo) ───────────────────────────────
@@ -114,10 +115,18 @@ export const useStore = create<StoreState>()(
 
       selectZone: (id) => set({ selectedZoneId: id }),
 
+      reorderZones: (fromIndex, toIndex) =>
+        set((state) => {
+          const zones = [...state.zones]
+          const [moved] = zones.splice(fromIndex, 1)
+          zones.splice(toIndex, 0, moved)
+          return { zones }
+        }),
+
       loadZones: (zones) => set({ zones, selectedZoneId: null }),
 
       // ── Snapping ─────────────────────────────────────────────────────
-      snapEnabled: false,
+      snapEnabled: true,
       snapThreshold: 0.3,
       snapPoints: [],
 

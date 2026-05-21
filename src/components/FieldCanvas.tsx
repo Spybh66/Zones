@@ -73,6 +73,8 @@ export const useFieldCtx = () => useContext(FieldTransformContext)
 export function FieldCanvas() {
   const containerRef = useRef<HTMLDivElement>(null)
   const svgRef = useRef<SVGSVGElement>(null)
+  const zoomBehaviorRef = useRef<d3.ZoomBehavior<SVGSVGElement, unknown> | null>(null)
+  const initialZoomApplied = useRef(false)
   const [size, setSize] = useState({ w: 800, h: 450 })
   const [zoom, setZoom] = useState<d3.ZoomTransform>(d3.zoomIdentity)
 
@@ -120,6 +122,7 @@ export function FieldCanvas() {
       .zoom<SVGSVGElement, unknown>()
       .scaleExtent([0.5, 20])
       .on('zoom', (e) => setZoom(e.transform))
+    zoomBehaviorRef.current = behavior
     d3.select(svg).call(behavior)
     // Prevent d3's built-in double-click zoom so our double-click adds points
     d3.select(svg).on('dblclick.zoom', null)
@@ -127,6 +130,17 @@ export function FieldCanvas() {
       d3.select(svg).on('.zoom', null)
     }
   }, [])
+
+  // Apply a slightly zoomed-out initial transform once the container size is known
+  useEffect(() => {
+    if (initialZoomApplied.current || !size.w || !size.h || !svgRef.current || !zoomBehaviorRef.current) return
+    initialZoomApplied.current = true
+    const k = 0.88
+    const tx = (size.w * (1 - k)) / 2
+    const ty = (size.h * (1 - k)) / 2
+    const t = d3.zoomIdentity.translate(tx, ty).scale(k)
+    d3.select(svgRef.current).call(zoomBehaviorRef.current.transform, t)
+  }, [size])
 
   // Convert client coordinates → field coordinates
   const toField = useCallback(

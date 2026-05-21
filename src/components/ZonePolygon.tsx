@@ -85,6 +85,10 @@ function VertexCircle({ zone, index, p, selected }: VertexProps) {
 
     const drag = d3
       .drag<SVGCircleElement, unknown>()
+      .on('start', () => {
+        // Pause history so every mousemove doesn't create an undo entry
+        useStore.temporal.getState().pause()
+      })
       .on('drag', (event) => {
         const field = getFieldCoords(event.sourceEvent as MouseEvent)
         const clamped = {
@@ -112,6 +116,8 @@ function VertexCircle({ zone, index, p, selected }: VertexProps) {
           actionsRef.current.updatePoint(zone.id, index, snapped)
         }
         actionsRef.current.setDraggingAt(null)
+        // Resume history — the final drop position is now recorded as one entry
+        useStore.temporal.getState().resume()
       })
 
     d3.select(circle).call(drag)
@@ -151,7 +157,6 @@ interface Props {
 
 export function ZonePolygon({ zone, selected }: Props) {
   const { base, toField } = useFieldCtx()
-  const selectZone = useStore((s) => s.selectZone)
   const insertPoint = useStore((s) => s.insertPoint)
 
   const svgPoints = zone.points
@@ -162,7 +167,7 @@ export function ZonePolygon({ zone, selected }: Props) {
 
   const handleClick = (e: React.MouseEvent) => {
     e.stopPropagation()
-    selectZone(zone.id)
+    // Selection is managed via the sidebar only; don't change it here
   }
 
   const handleEdgeDblClick = (e: React.MouseEvent) => {

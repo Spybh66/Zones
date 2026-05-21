@@ -212,9 +212,12 @@ export function FieldCanvas() {
               fill="transparent"
               onClick={handleBgClick}
             />
-            {/* Zone polygons (visible only) */}
+            {/* Zone polygons (visible only), selected zone rendered last so it sits on top */}
             {zones
               .filter((z) => z.visible)
+              .sort((a, b) =>
+                a.id === selectedZoneId ? 1 : b.id === selectedZoneId ? -1 : 0,
+              )
               .map((z) => (
                 <ZonePolygon
                   key={z.id}

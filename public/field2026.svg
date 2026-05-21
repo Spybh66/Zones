@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.548 8.052" width="1755" height="805">
+  <!-- FRC 2026 field placeholder — replace public/field2026.png with the real field image -->
+  <!-- Field dimensions: 17.548 m wide × 8.052 m tall -->
+
+  <!-- Field background -->
+  <rect width="17.548" height="8.052" fill="#1e3a1e" />
+
+  <!-- Center line -->
+  <line x1="8.774" y1="0" x2="8.774" y2="8.052" stroke="#ffffff" stroke-width="0.03" stroke-dasharray="0.2 0.1" />
+
+  <!-- Wing lines -->
+  <line x1="5.842" y1="0" x2="5.842" y2="8.052" stroke="#4444ff" stroke-width="0.02" stroke-dasharray="0.1 0.05" opacity="0.6" />
+  <line x1="11.706" y1="0" x2="11.706" y2="8.052" stroke="#ff4444" stroke-width="0.02" stroke-dasharray="0.1 0.05" opacity="0.6" />
+
+  <!-- Blue alliance zone -->
+  <rect x="0" y="0" width="5.842" height="8.052" fill="#0033aa" opacity="0.25" />
+  <!-- Red alliance zone -->
+  <rect x="11.706" y="0" width="5.842" height="8.052" fill="#aa0000" opacity="0.25" />
+
+  <!-- Blue subwoofer (approximate) -->
+  <rect x="0" y="3.026" width="1.372" height="2.0" fill="#2255cc" opacity="0.7" rx="0.1" />
+  <!-- Red subwoofer (approximate) -->
+  <rect x="16.176" y="3.026" width="1.372" height="2.0" fill="#cc2222" opacity="0.7" rx="0.1" />
+
+  <!-- Blue stage (triangle) -->
+  <polygon points="3.048,2.438 3.048,5.614 5.791,4.026" fill="none" stroke="#aaaaff" stroke-width="0.04" opacity="0.7" />
+  <!-- Red stage (triangle) -->
+  <polygon points="14.500,2.438 14.500,5.614 11.757,4.026" fill="none" stroke="#ffaaaa" stroke-width="0.04" opacity="0.7" />
+
+  <!-- Alliance wall markers -->
+  <rect x="0" y="0" width="0.05" height="8.052" fill="#4488ff" />
+  <rect x="17.498" y="0" width="0.05" height="8.052" fill="#ff4444" />
+
+  <!-- Labels -->
+  <text x="1.5" y="4.2" font-size="0.4" fill="white" text-anchor="middle" opacity="0.9">BLUE</text>
+  <text x="16.0" y="4.2" font-size="0.4" fill="white" text-anchor="middle" opacity="0.9">RED</text>
+  <text x="8.774" y="4.2" font-size="0.3" fill="white" text-anchor="middle" opacity="0.6">CENTER</text>
+
+  <!-- Corner tick marks -->
+  <line x1="0" y1="0" x2="0.3" y2="0" stroke="white" stroke-width="0.03" />
+  <line x1="0" y1="0" x2="0" y2="0.3" stroke="white" stroke-width="0.03" />
+  <line x1="17.548" y1="0" x2="17.248" y2="0" stroke="white" stroke-width="0.03" />
+  <line x1="17.548" y1="0" x2="17.548" y2="0.3" stroke="white" stroke-width="0.03" />
+  <line x1="0" y1="8.052" x2="0.3" y2="8.052" stroke="white" stroke-width="0.03" />
+  <line x1="0" y1="8.052" x2="0" y2="7.752" stroke="white" stroke-width="0.03" />
+  <line x1="17.548" y1="8.052" x2="17.248" y2="8.052" stroke="white" stroke-width="0.03" />
+  <line x1="17.548" y1="8.052" x2="17.548" y2="7.752" stroke="white" stroke-width="0.03" />
+
+  <!-- Placeholder notice -->
+  <text x="8.774" y="0.4" font-size="0.25" fill="yellow" text-anchor="middle" opacity="0.8">PLACEHOLDER — replace with public/field2026.png</text>
+</svg>

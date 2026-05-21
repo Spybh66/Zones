@@ -1,0 +1,40 @@
+{
+  "field": "FRC 2026",
+  "notes": "Snap points extracted from FieldImage2026.svg (official FIRST field drawing). All coordinates in meters, origin bottom-left, +x toward red alliance, +y up. Field: 16.541 m × 8.0692 m.",
+  "snapPoints": [
+    { "label": "Field Corner — Bottom Left",           "x":  0.0,    "y": 0.0    },
+    { "label": "Field Corner — Top Left",              "x":  0.0,    "y": 8.0692 },
+    { "label": "Field Corner — Bottom Right",          "x": 16.541,  "y": 0.0    },
+    { "label": "Field Corner — Top Right",             "x": 16.541,  "y": 8.0692 },
+
+    { "label": "Blue Alliance Wall — Bottom",          "x":  0.0,    "y": 0.0    },
+    { "label": "Blue Alliance Wall — Mid",             "x":  0.0,    "y": 4.0346 },
+    { "label": "Blue Alliance Wall — Top",             "x":  0.0,    "y": 8.0692 },
+    { "label": "Red Alliance Wall — Bottom",           "x": 16.541,  "y": 0.0    },
+    { "label": "Red Alliance Wall — Mid",              "x": 16.541,  "y": 4.0346 },
+    { "label": "Red Alliance Wall — Top",              "x": 16.541,  "y": 8.0692 },
+
+    { "label": "Center Field",                         "x":  8.2705, "y": 4.0346 },
+    { "label": "Center Line — Bottom",                 "x":  8.2705, "y": 0.0    },
+    { "label": "Center Line — Top",                    "x":  8.2705, "y": 8.0692 },
+
+    { "label": "Blue Wing Line — Bottom",              "x":  4.003,  "y": 0.0    },
+    { "label": "Blue Wing Line — Top",                 "x":  4.003,  "y": 8.0692 },
+    { "label": "Red Wing Line — Bottom",               "x": 12.538,  "y": 0.0    },
+    { "label": "Red Wing Line — Top",                  "x": 12.538,  "y": 8.0692 },
+
+    { "label": "Blue HP Station — Lower Corner",       "x":  0.609,  "y": 5.432  },
+    { "label": "Blue HP Station — Upper Corner",       "x":  0.609,  "y": 6.499  },
+    { "label": "Blue HP Station — Center",             "x":  0.0,    "y": 5.965  },
+    { "label": "Red HP Station — Lower Corner",        "x": 15.932,  "y": 1.570  },
+    { "label": "Red HP Station — Upper Corner",        "x": 15.932,  "y": 2.637  },
+    { "label": "Red HP Station — Center",              "x": 16.541,  "y": 2.104  },
+
+    { "label": "Blue Ramp Center",                     "x":  4.625,  "y": 4.0346 },
+    { "label": "Blue Ramp North",                      "x":  4.028,  "y": 6.485  },
+    { "label": "Blue Ramp South",                      "x":  4.028,  "y": 1.584  },
+    { "label": "Red Ramp Center",                      "x": 11.916,  "y": 4.0346 },
+    { "label": "Red Ramp North",                       "x": 12.513,  "y": 6.485  },
+    { "label": "Red Ramp South",                       "x": 12.513,  "y": 1.584  }
+  ]
+}

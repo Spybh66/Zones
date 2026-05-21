@@ -80,6 +80,7 @@ export function FieldCanvas() {
   const selectedZoneId = useStore((s) => s.selectedZoneId)
   const addPoint = useStore((s) => s.addPoint)
   const selectZone = useStore((s) => s.selectZone)
+  const deselectTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   // Track container size via ResizeObserver
   useEffect(() => {
@@ -139,8 +140,21 @@ export function FieldCanvas() {
     [zoom, base],
   )
 
+  const handleBgClick = useCallback(() => {
+    if (deselectTimer.current) clearTimeout(deselectTimer.current)
+    deselectTimer.current = setTimeout(() => {
+      selectZone(null)
+      deselectTimer.current = null
+    }, 250)
+  }, [selectZone])
+
   const handleDblClick = useCallback(
     (e: React.MouseEvent<SVGSVGElement>) => {
+      // Cancel any pending deselect from the first click of this dblclick
+      if (deselectTimer.current) {
+        clearTimeout(deselectTimer.current)
+        deselectTimer.current = null
+      }
       // Ignore if click was on a zone polygon
       if ((e.target as Element).closest('[data-zone]')) return
       if (!selectedZoneId) return
@@ -196,7 +210,7 @@ export function FieldCanvas() {
               width={FIELD_W * base.scale}
               height={FIELD_H * base.scale}
               fill="transparent"
-              onClick={() => selectZone(null)}
+              onClick={handleBgClick}
             />
             {/* Zone polygons (visible only) */}
             {zones

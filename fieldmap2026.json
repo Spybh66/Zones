@@ -1,40 +1,72 @@
 {
   "field": "FRC 2026",
-  "notes": "Snap points extracted from FieldImage2026.svg (official FIRST field drawing). All coordinates in meters, origin bottom-left, +x toward red alliance, +y up. Field: 16.541 m × 8.0692 m.",
+  "notes": "Snap points derived from FieldConstants.java (WHS-FRC-3467/Skip-5.16-Perry) and 2026-official.json AprilTag layout. Coordinates in meters, origin bottom-left, +x toward red alliance, +y up. Field: 16.541 m × 8.069 m.",
   "snapPoints": [
-    { "label": "Field Corner — Bottom Left",           "x":  0.0,    "y": 0.0    },
-    { "label": "Field Corner — Top Left",              "x":  0.0,    "y": 8.0692 },
-    { "label": "Field Corner — Bottom Right",          "x": 16.541,  "y": 0.0    },
-    { "label": "Field Corner — Top Right",             "x": 16.541,  "y": 8.0692 },
+    { "label": "Field Corner — Bottom Left",           "x":  0.0,    "y": 0.0   },
+    { "label": "Field Corner — Top Left",              "x":  0.0,    "y": 8.069 },
+    { "label": "Field Border — Left Mid",              "x":  0.0,    "y": 4.035 },
+    { "label": "Field Corner — Bottom Right",          "x": 16.541,  "y": 0.0   },
+    { "label": "Field Corner — Top Right",             "x": 16.541,  "y": 8.069 },
+    { "label": "Field Border — Right Mid",             "x": 16.541,  "y": 4.035 },
 
-    { "label": "Blue Alliance Wall — Bottom",          "x":  0.0,    "y": 0.0    },
-    { "label": "Blue Alliance Wall — Mid",             "x":  0.0,    "y": 4.0346 },
-    { "label": "Blue Alliance Wall — Top",             "x":  0.0,    "y": 8.0692 },
-    { "label": "Red Alliance Wall — Bottom",           "x": 16.541,  "y": 0.0    },
-    { "label": "Red Alliance Wall — Mid",              "x": 16.541,  "y": 4.0346 },
-    { "label": "Red Alliance Wall — Top",              "x": 16.541,  "y": 8.0692 },
+    { "label": "Center Field",                         "x":  8.271,  "y": 4.035 },
+    { "label": "Center Line — Bottom",                 "x":  8.271,  "y": 0.0   },
+    { "label": "Center Line — Top",                    "x":  8.271,  "y": 8.069 },
 
-    { "label": "Center Field",                         "x":  8.2705, "y": 4.0346 },
-    { "label": "Center Line — Bottom",                 "x":  8.2705, "y": 0.0    },
-    { "label": "Center Line — Top",                    "x":  8.2705, "y": 8.0692 },
+    { "label": "Blue Starting Line — Bottom",          "x":  4.022,  "y": 0.0   },
+    { "label": "Blue Starting Line — Top",             "x":  4.022,  "y": 8.069 },
+    { "label": "Red Starting Line — Bottom",           "x": 12.519,  "y": 0.0   },
+    { "label": "Red Starting Line — Top",              "x": 12.519,  "y": 8.069 },
 
-    { "label": "Blue Wing Line — Bottom",              "x":  4.003,  "y": 0.0    },
-    { "label": "Blue Wing Line — Top",                 "x":  4.003,  "y": 8.0692 },
-    { "label": "Red Wing Line — Bottom",               "x": 12.538,  "y": 0.0    },
-    { "label": "Red Wing Line — Top",                  "x": 12.538,  "y": 8.0692 },
+    { "label": "Blue Hub — Center",                    "x":  4.619,  "y": 4.035 },
+    { "label": "Blue Hub — Near Left Corner",          "x":  4.022,  "y": 4.632 },
+    { "label": "Blue Hub — Near Right Corner",         "x":  4.022,  "y": 3.438 },
+    { "label": "Blue Hub — Far Left Corner",           "x":  5.216,  "y": 4.632 },
+    { "label": "Blue Hub — Far Right Corner",          "x":  5.216,  "y": 3.438 },
 
-    { "label": "Blue HP Station — Lower Corner",       "x":  0.609,  "y": 5.432  },
-    { "label": "Blue HP Station — Upper Corner",       "x":  0.609,  "y": 6.499  },
-    { "label": "Blue HP Station — Center",             "x":  0.0,    "y": 5.965  },
-    { "label": "Red HP Station — Lower Corner",        "x": 15.932,  "y": 1.570  },
-    { "label": "Red HP Station — Upper Corner",        "x": 15.932,  "y": 2.637  },
-    { "label": "Red HP Station — Center",              "x": 16.541,  "y": 2.104  },
+    { "label": "Red Hub — Center",                     "x": 11.922,  "y": 4.034 },
+    { "label": "Red Hub — Near Left Corner",           "x": 12.519,  "y": 3.437 },
+    { "label": "Red Hub — Near Right Corner",          "x": 12.519,  "y": 4.631 },
+    { "label": "Red Hub — Far Left Corner",            "x": 11.325,  "y": 3.437 },
+    { "label": "Red Hub — Far Right Corner",           "x": 11.325,  "y": 4.631 },
 
-    { "label": "Blue Ramp Center",                     "x":  4.625,  "y": 4.0346 },
-    { "label": "Blue Ramp North",                      "x":  4.028,  "y": 6.485  },
-    { "label": "Blue Ramp South",                      "x":  4.028,  "y": 1.584  },
-    { "label": "Red Ramp Center",                      "x": 11.916,  "y": 4.0346 },
-    { "label": "Red Ramp North",                       "x": 12.513,  "y": 6.485  },
-    { "label": "Red Ramp South",                       "x": 12.513,  "y": 1.584  }
+    { "label": "Blue Tower — Center",                  "x":  1.105,  "y": 3.746 },
+    { "label": "Blue Tower — North Upright",           "x":  1.105,  "y": 4.174 },
+    { "label": "Blue Tower — South Upright",           "x":  1.105,  "y": 3.317 },
+
+    { "label": "Red Tower — Center",                   "x": 15.436,  "y": 4.323 },
+    { "label": "Red Tower — North Upright",            "x": 15.436,  "y": 4.752 },
+    { "label": "Red Tower — South Upright",            "x": 15.436,  "y": 3.895 },
+
+    { "label": "Blue HP Station — Center",             "x":  0.686,  "y": 5.963 },
+    { "label": "Blue HP Station — North Corner",       "x":  0.686,  "y": 6.496 },
+    { "label": "Blue HP Station — South Corner",       "x":  0.686,  "y": 5.430 },
+
+    { "label": "Red HP Station — Center",              "x": 15.855,  "y": 2.106 },
+    { "label": "Red HP Station — North Corner",        "x": 15.855,  "y": 2.639 },
+    { "label": "Red HP Station — South Corner",        "x": 15.855,  "y": 1.573 },
+
+    { "label": "Blue Outpost",                         "x":  0.0,    "y": 0.666 },
+    { "label": "Red Outpost",                          "x": 16.541,  "y": 7.403 },
+
+    { "label": "Blue North Bump — Near Corner",        "x":  4.062,  "y": 6.485 },
+    { "label": "Blue North Bump — Far Corner",         "x":  5.188,  "y": 6.485 },
+    { "label": "Blue South Bump — Near Corner",        "x":  4.062,  "y": 1.584 },
+    { "label": "Blue South Bump — Far Corner",         "x":  5.188,  "y": 1.584 },
+
+    { "label": "Red North Bump — Near Corner",         "x": 12.479,  "y": 6.485 },
+    { "label": "Red North Bump — Far Corner",          "x": 11.353,  "y": 6.485 },
+    { "label": "Red South Bump — Near Corner",         "x": 12.479,  "y": 1.584 },
+    { "label": "Red South Bump — Far Corner",          "x": 11.353,  "y": 1.584 },
+
+    { "label": "Blue North Trench — Near Corner",      "x":  4.028,  "y": 6.791 },
+    { "label": "Blue North Trench — Far Corner",       "x":  5.222,  "y": 6.791 },
+    { "label": "Blue South Trench — Near Corner",      "x":  4.028,  "y": 1.279 },
+    { "label": "Blue South Trench — Far Corner",       "x":  5.222,  "y": 1.279 },
+
+    { "label": "Red North Trench — Near Corner",       "x": 12.513,  "y": 6.791 },
+    { "label": "Red North Trench — Far Corner",        "x": 11.319,  "y": 6.791 },
+    { "label": "Red South Trench — Near Corner",       "x": 12.513,  "y": 1.279 },
+    { "label": "Red South Trench — Far Corner",        "x": 11.319,  "y": 1.279 }
   ]
 }
